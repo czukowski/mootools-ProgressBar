@@ -41,7 +41,7 @@ var ProgressBar = new Class({
 		var self = this;
 		if ( ! self.options.allowMore && go > 100) go = 100;
 		self.to = go.toInt();
-		document.id(self.options.percentageID).set('morph', { 
+		this.percentage.set('morph', { 
 			duration: this.options.speed,
 			link: 'cancel',
 			onComplete: function() {
@@ -54,7 +54,7 @@ var ProgressBar = new Class({
 			width: self.calculate(go)
 		});
 		if (self.options.displayText) {
-			document.id(self.options.displayID).set('text', self.to+'%'); 
+			this.display.set('text', self.to+'%'); 
 		}
 	},
 
@@ -66,9 +66,9 @@ var ProgressBar = new Class({
 	// Creates the box and percentage elements
 	createElements: function() {
 		this.box = new Element('div#'+this.options.boxID).inject(this.options.container);
-		var perc = new Element('div#'+this.options.percentageID+'[style="width:0"]').inject(this.box);
+		this.percentage = new Element('div#'+this.options.percentageID+'[style="width:0"]').inject(this.box);
 		if (this.options.displayText) { 
-			var text = new Element('div#'+this.options.displayID).inject(this.options.container);
+			this.display = new Element('div#'+this.options.displayID).inject(this.options.container);
 		}
 		this.set(this.options.startPercentage);
 	},
