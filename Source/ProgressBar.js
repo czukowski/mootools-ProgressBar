@@ -24,9 +24,9 @@ var ProgressBar = new Class({
 	// Options
 	options: {
 		container: document.body,
-		boxID: 'progress-bar-box-id',
-		percentageID: 'progress-bar-percentage-id',
-		displayID: 'progress-bar-display-id',
+		boxClass: 'progress-bar-box',
+		percentageClass: 'progress-bar-percentage',
+		displayClass: 'progress-bar-display',
 		startPercentage: 0,
 		displayText: false,
 		speed: 10,
@@ -65,10 +65,10 @@ var ProgressBar = new Class({
 
 	// Creates the box and percentage elements
 	createElements: function() {
-		this.box = new Element('div#'+this.options.boxID).inject(this.options.container);
-		this.percentage = new Element('div#'+this.options.percentageID+'[style="width:0"]').inject(this.box);
+		this.box = new Element('div.'+this.options.boxClass).inject(this.options.container);
+		this.percentage = new Element('div.'+this.options.percentageClass+'[style="width:0"]').inject(this.box);
 		if (this.options.displayText) { 
-			this.display = new Element('div#'+this.options.displayID).inject(this.options.container);
+			this.display = new Element('div.'+this.options.displayClass).inject(this.options.container);
 		}
 		this.set(this.options.startPercentage);
 	},
