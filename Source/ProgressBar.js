@@ -23,15 +23,16 @@ var ProgressBar = new Class({
 
 	// Options
 	options: {
-		container: document.body,
+		allowMore: false,
 		boxClass: 'progress-bar-box',
-		percentageClass: 'progress-bar-percentage',
+		container: document.body,
 		displayClass: 'progress-bar-display',
-		startPercentage: 0,
 		displayText: false,
+		percentageClass: 'progress-bar-percentage',
+		startPercentage: 0,
 		speed: 10,
 		step: 1,
-		allowMore: false/*,
+		totalItems: null/*,
 		onComplete: $empty,
 		onChange: $empty*/
 	},
@@ -76,8 +77,8 @@ var ProgressBar = new Class({
 	// Initialization
 	initialize: function(options) {
 		// Set options.step automatically
-		if (options.totalItems && options.itemsPerStep) {
-			options.step = 100 * options.itemsPerStep / options.totalItems;
+		if (options.totalItems) {
+			options.step = 100 * options.step / options.totalItems;
 		}
 		// Set options
 		this.setOptions(options);
