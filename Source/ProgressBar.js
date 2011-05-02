@@ -75,6 +75,10 @@ var ProgressBar = new Class({
 
 	// Initialization
 	initialize: function(options) {
+		// Set options.step automatically
+		if (options.totalItems && options.itemsPerStep) {
+			options.step = 100 * options.itemsPerStep / options.totalItems;
+		}
 		// Set options
 		this.setOptions(options);
 		// Quick container
