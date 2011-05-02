@@ -75,11 +75,11 @@ var ProgressBar = new Class({
 
 	// Initialization
 	initialize: function(options) {
-		//set options
+		// Set options
 		this.setOptions(options);
-		//quick container
+		// Quick container
 		this.options.container = document.id(this.options.container);
-		//create elements
+		// Create elements
 		this.createElements();
 	},
 
