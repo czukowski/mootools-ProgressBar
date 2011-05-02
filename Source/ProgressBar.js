@@ -41,7 +41,8 @@ var ProgressBar = new Class({
 	animate: function(go) {
 		var self = this;
 		if ( ! self.options.allowMore && go > 100) go = 100;
-		self.to = go.toInt();
+		self.to = go;
+		go = go.toInt();
 		this.percentage.set('morph', { 
 			duration: this.options.speed,
 			link: 'cancel',
@@ -55,7 +56,7 @@ var ProgressBar = new Class({
 			width: self.calculate(go)
 		});
 		if (self.options.displayText) {
-			this.display.set('text', self.to+'%'); 
+			this.display.set('text', go+'%'); 
 		}
 	},
 
