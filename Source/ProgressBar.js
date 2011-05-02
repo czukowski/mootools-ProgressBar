@@ -60,13 +60,13 @@ var ProgressBar = new Class({
 
 	// Calculates width in pixels from percentage
 	calculate: function(percentage) {
-		return (document.id(this.options.boxID).getStyle('width').replace('px', '') * (percentage / 100)).toInt();
+		return (this.box.getStyle('width').replace('px', '') * (percentage / 100)).toInt();
 	},
 
 	// Creates the box and percentage elements
 	createElements: function() {
-		var box = new Element('div#'+this.options.boxID).inject(this.options.container);
-		var perc = new Element('div#'+this.options.percentageID+'[style="width:0"]').inject(box);
+		this.box = new Element('div#'+this.options.boxID).inject(this.options.container);
+		var perc = new Element('div#'+this.options.percentageID+'[style="width:0"]').inject(this.box);
 		if (this.options.displayText) { 
 			var text = new Element('div#'+this.options.displayID).inject(this.options.container);
 		}
